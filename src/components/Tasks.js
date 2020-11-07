@@ -13,24 +13,24 @@ const Tasks = ({ createTask, setCreateTask }) => {
         <input
           onClick={() => {
             if (task.isChecked) {
-              const newTab = [...createTask];
-              newTab[index].isChecked = false;
-              setCreateTask(newTab);
-
               // const newTab = [...createTask];
-              // console.log(newTab);
-              // newTab.splice(index, 1);
-              // newTab.unshift({ name: task.name, isChecked: false });
+              // newTab[index].isChecked = false;
+              // setCreateTask(newTab);
+
+              const newTab = [...createTask];
+              console.log(newTab);
+              newTab.splice(index, 1);
+              newTab.unshift({ name: task.name, isChecked: false });
               setCreateTask(newTab);
             } else {
-              const newTab = [...createTask];
-              newTab[index].isChecked = true;
-              setCreateTask(newTab);
               // const newTab = [...createTask];
-              // console.log(newTab);
-              // newTab.splice(index, 1);
-              // newTab.push({ name: task.name, isChecked: true });
+              // newTab[index].isChecked = true;
               // setCreateTask(newTab);
+              const newTab = [...createTask];
+              console.log(newTab);
+              newTab.splice(index, 1);
+              newTab.push({ name: task.name, isChecked: true });
+              setCreateTask(newTab);
             }
           }}
           type="checkbox"

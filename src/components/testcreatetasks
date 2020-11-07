@@ -28,13 +28,8 @@ const TaskName = ({
       };
 
       try {
-        const response = await axios.post("http://localhost:3000/create", data);
-        console.log(response.data);
-        if (response.status === 200) {
-          alert("Task has been created");
-        } else {
-          alert("Bad request");
-        }
+        const response = await axios.post("http://localhost:3001/create", data);
+        console.log(response);
       } catch (error) {
         console.error(error.message);
       }
