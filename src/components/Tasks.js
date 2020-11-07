@@ -10,32 +10,39 @@ const Tasks = ({ createTask, setCreateTask }) => {
   return createTask.map((task, index) => {
     return (
       <div key={index} className="tasks-list">
-        <input
-          onClick={() => {
-            if (task.isChecked) {
-              // const newTab = [...createTask];
-              // newTab[index].isChecked = false;
-              // setCreateTask(newTab);
+        {task.isChecked === true ? (
+          <input
+            onClick={() => {
+              if (task.isChecked) {
+                const newTab = [...createTask];
+                newTab[index].isChecked = false;
+                setCreateTask(newTab);
+              } else {
+                const newTab = [...createTask];
+                newTab[index].isChecked = true;
+                setCreateTask(newTab);
+              }
+            }}
+            type="checkbox"
+            checked
+          />
+        ) : (
+          <input
+            onClick={() => {
+              if (task.isChecked) {
+                const newTab = [...createTask];
+                newTab[index].isChecked = false;
+                setCreateTask(newTab);
+              } else {
+                const newTab = [...createTask];
+                newTab[index].isChecked = true;
+                setCreateTask(newTab);
+              }
+            }}
+            type="checkbox"
+          />
+        )}
 
-              const newTab = [...createTask];
-              console.log(newTab);
-              newTab.splice(index, 1);
-              newTab.unshift({ name: task.name, isChecked: false });
-              setCreateTask(newTab);
-            } else {
-              // const newTab = [...createTask];
-              // newTab[index].isChecked = true;
-              // setCreateTask(newTab);
-              const newTab = [...createTask];
-              console.log(newTab);
-              newTab.splice(index, 1);
-              newTab.push({ name: task.name, isChecked: true });
-              setCreateTask(newTab);
-            }
-          }}
-          type="checkbox"
-          id={task.name}
-        />
         <p className={task.isChecked === true ? "stroke" : "task"}>
           {task.name}
         </p>
